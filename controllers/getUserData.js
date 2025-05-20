@@ -3,8 +3,7 @@ import { db } from "../database.js";
 export const getUserData = async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log(req.body);
-
+ 
     if (!email || !password) {
       return res.status(401).json({ message: "Email or Password is Missing" });
     }
@@ -21,7 +20,7 @@ export const getUserData = async (req, res) => {
 
     let roleData;
     const table = userData.role;
-    console.log(table);
+    
 
     const [rolRows] = await db.execute(
       `SELECT * FROM ${table} WHERE user_id=?`,
@@ -39,7 +38,7 @@ export const getUserData = async (req, res) => {
       ...roleData,
     });
   } catch (err) {
-    console.log("Error in getUserData:", err);
+     
     return res.status(500).json({ message: "Server Error" });
   }
 };
