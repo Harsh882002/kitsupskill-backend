@@ -30,7 +30,7 @@ app.post('/logout',logoutUser);
 
 app.get('/test/:testCode',getTestData);
 
-app.get("/user/:userId",getUsersTests)
+app.get("/user/:userId",getUsersTests); 
 
 app.post("/student",studentData);
 
